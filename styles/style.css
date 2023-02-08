@@ -43,6 +43,7 @@ html {
 }
 
 .tasksSection__header {
+  margin-bottom: 0px;
   height: 80px;
   line-height: 80px;
   font-size: 26px;
@@ -53,6 +54,7 @@ html {
 .form {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -72,6 +74,7 @@ html {
 }
 
 .tasksSection__tasksList {
+  margin-block-start: 0;
   padding: 0;
   padding-right: 40px;
   padding-left: 40px;
@@ -80,16 +83,18 @@ html {
 .tasksListItem {
   border-bottom: 3px solid #dddada;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 20px;
 }
 
 .tasksListItem__contentSpan {
-  display: block;
   padding: 30px;
-  width: 500px;
+  width: 70%;
+  overflow-wrap: break-word;
 }
 
 .tasksListItem__contentSpan--linethrough {
@@ -112,4 +117,59 @@ html {
   color: white;
   margin-left: auto;
   border: none;
+}
+
+@media (max-width: 767px) {
+  .form__addTaskButton {
+    flex-basis: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form__newTaskInput {
+    flex-basis: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    padding-bottom: 25px;
+  }
+}
+
+@media (max-width: 440px) {
+  .tasksListItem {
+    justify-content: space-evenly;
+    text-align: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .tasksListItem__contentSpan {
+    order: 1;
+    flex-basis: 200px;
+    padding: 30px 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .tasksListItem__removeButton {
+    margin-left: unset;
+  }
+}
+
+@media (max-width: 300px) {
+  .addTaskSection__header {
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 300px) {
+  .tasksListAppHeader {
+    text-align: center;
+  }
 }

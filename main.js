@@ -1,7 +1,7 @@
 const tasks = [
   {
     content: "Zrobić zadanie domowe",
-    done: false,
+    done: true,
   },
   {
     content: "zdobyć pracę jako front-end developer",
@@ -79,10 +79,12 @@ const removeTask = () => {
 const onFormSubmit = (e) => {
   e.preventDefault();
   const newTaskInput = document.querySelector(".js-form__newTaskInput");
+  newTaskInput.focus();
   const newTask = { content: newTaskInput.value.trim(), done: false };
   if (!newTask.content) return;
   tasks.push(newTask);
   bindEvents();
+  newTaskInput.value = "";
 };
 
 const init = () => {
