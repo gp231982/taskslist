@@ -4,7 +4,7 @@ const tasks = [
     done: false,
   },
   {
-    content: "Zostać programistą",
+    content: "zdobyć pracę jako front-end developer",
     done: false,
   },
   {
@@ -13,70 +13,80 @@ const tasks = [
   },
 ];
 
-const tasksList = document.querySelector(".tasksList");
-const newTaskInput = document.querySelector(".js-form__newTask");
-const form = document.querySelector(".form");
-
-const checkIcon = `<i class="fa-solid fa-check"></i>`;
+const tasksList = document.querySelector(".js-tasksSection__tasksList");
 
 const render = () => {
+  const checkIcon = `<i class="fa-solid fa-check"></i>`;
   tasks.forEach((task) => {
-    tasksList.innerHTML += `<li class="taskContainer">
-    <button class="taskContainer__check">
-    ${task.done ? checkIcon : ""}</button>
-    <span
-      
-    class="${
-      task.done ? "taskContainer__content--linethrough" : ""
-    } taskContainer__content">${task.content}</span>
-    <button class="taskContainer__remove"><i class="fa-regular fa-trash-can"></i></button>
-  </li>`;
+    tasksList.innerHTML += `<li class="tasksListItem">
+      <button class="tasksListItem__checkButton">${
+        task.done ? checkIcon : ""
+      }</button>
+      <span class="${task.done ? "tasksListItem__contentSpan--linethrough" : ""}
+        tasksListItem__contentSpan">${task.content}
+      </span>
+      <button class="tasksListItem__removeButton">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+    </li>`;
   });
 
-  toogleDoneButton();
-  removeTaskButton();
+  toogleCheckButton();
+  removeTask();
 };
 
-const toogleDoneButton = () => {
-  const taskContainerCheckButtons = document.querySelectorAll(
-    ".taskContainer__check"
+const resetTasksList = () => {
+  tasksList.innerHTML = "";
+};
+
+const toggleTaskDone = (index) => {
+  tasks[index].done = !tasks[index].done;
+};
+
+const removeTaskFromTasksArray = (index) => {
+  tasks.splice(index, 1);
+};
+
+const bindEvents = () => {
+  resetTasksList();
+  render();
+};
+
+const toogleCheckButton = () => {
+  const tasksListItemCheckButtons = document.querySelectorAll(
+    ".tasksListItem__checkButton"
   );
-  console.log(taskContainerCheckButtons);
-  taskContainerCheckButtons.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      console.log(tasks[index].content);
-      tasks[index].done = !tasks[index].done;
-      console.log(tasks);
-      tasksList.innerHTML = "";
-      render();
+  tasksListItemCheckButtons.forEach((task, index) => {
+    task.addEventListener("click", () => {
+      toggleTaskDone(index);
+      bindEvents();
     });
   });
 };
 
-const removeTaskButton = () => {
-  const taskContainerRemoveButtons = document.querySelectorAll(
-    ".taskContainer__remove"
+const removeTask = () => {
+  const tasksListItemRemoveButtons = document.querySelectorAll(
+    ".tasksListItem__removeButton"
   );
-  taskContainerRemoveButtons.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      console.log(item);
-      tasks.splice(index, 1);
-      tasksList.innerHTML = "";
-      render();
+  tasksListItemRemoveButtons.forEach((task, index) => {
+    task.addEventListener("click", () => {
+      removeTaskFromTasksArray(index);
+      bindEvents();
     });
   });
 };
 
 const onFormSubmit = (e) => {
   e.preventDefault();
+  const newTaskInput = document.querySelector(".js-form__newTaskInput");
   const newTask = { content: newTaskInput.value.trim(), done: false };
   if (!newTask.content) return;
   tasks.push(newTask);
-  tasksList.innerHTML = "";
-  render();
+  bindEvents();
 };
 
 const init = () => {
+  const form = document.querySelector(".js-form");
   render();
   form.addEventListener("submit", onFormSubmit);
 };

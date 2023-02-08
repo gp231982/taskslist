@@ -23,25 +23,25 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="main.js"></script>
-    <title>Document</title>
+    <title>TaskList</title>
   </head>
   <body class="body">
     <div class="tasksListAppContainer">
       <h1 class="tasksListAppHeader">Lista zadań</h1>
-      <section class="addTask">
-        <h2 class="addTask__header">Dodaj nowe zadanie</h2>
-        <form class="form">
+      <section class="addTaskSection">
+        <h2 class="addTaskSection__header">Dodaj nowe zadanie</h2>
+        <form class="form js-form">
           <input
             type="text"
             placeholder="Co jest do zrobienia?"
-            class="form__newTask js-form__newTask"
+            class="form__newTaskInput js-form__newTaskInput"
           />
-          <button type="submit" class="form__addTask">Dodaj zadanie</button>
+          <button type="submit" class="form__addTaskButton">Dodaj zadanie</button>
         </form>
       </section>
-      <section class="tasks">
-        <h2 class="tasks__header">Lista zadań</h2>
-        <ul class="tasksList"></ul>
+      <section class="tasksSection">
+        <h2 class="tasksSection__header">Lista zadań</h2>
+        <ul class="tasksSection__tasksList js-tasksSection__tasksList"></ul>
       </section>
     </div>
   </body>

@@ -23,11 +23,11 @@ html {
   font-size: 40px;
 }
 
-.addTask {
+.addTaskSection {
   background-color: #ffffff;
 }
 
-.addTask__header {
+.addTaskSection__header {
   font-size: 26px;
   padding-left: 20px;
   height: 80px;
@@ -36,13 +36,13 @@ html {
   line-height: 80px;
 }
 
-.tasks {
+.tasksSection {
   margin: 0 auto;
   padding-bottom: 20px;
   background-color: #ffffff;
 }
 
-.tasks__header {
+.tasksSection__header {
   height: 80px;
   line-height: 80px;
   font-size: 26px;
@@ -56,14 +56,14 @@ html {
   align-items: center;
 }
 
-.form__newTask {
+.form__newTaskInput {
   padding: 10px;
   width: 80%;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.form__addTask {
+.form__addTaskButton {
   width: 15%;
   background-color: #007380;
   color: white;
@@ -71,13 +71,13 @@ html {
   border: none;
 }
 
-.tasksList {
+.tasksSection__tasksList {
   padding: 0;
   padding-right: 40px;
   padding-left: 40px;
 }
 
-.taskContainer {
+.tasksListItem {
   border-bottom: 3px solid #dddada;
   display: flex;
   justify-content: flex-start;
@@ -86,17 +86,17 @@ html {
   padding-right: 10px;
 }
 
-.taskContainer__content {
+.tasksListItem__contentSpan {
   display: block;
   padding: 30px;
   width: 500px;
 }
 
-.taskContainer__content--linethrough {
+.tasksListItem__contentSpan--linethrough {
   text-decoration: line-through;
 }
 
-.taskContainer__check {
+.tasksListItem__checkButton {
   min-width: 40px;
   height: 40px;
   background-color: #197a23;
@@ -105,7 +105,7 @@ html {
   border: none;
 }
 
-.taskContainer__remove {
+.tasksListItem__removeButton {
   min-width: 40px;
   height: 40px;
   background-color: #ed293c;
