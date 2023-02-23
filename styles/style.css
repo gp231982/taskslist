@@ -16,22 +16,23 @@ html {
 
 .tasksListAppContainer {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1000px;
 }
 
 .tasksListAppHeader {
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .addTaskSection {
   background-color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .addTaskSection__header {
-  font-size: 26px;
+  font-size: 20px;
   padding-left: 20px;
   height: 80px;
-  border-bottom: 3px solid #dddada;
+  border-bottom: 1px solid #dddada;
   margin-bottom: 0;
   line-height: 80px;
 }
@@ -42,35 +43,71 @@ html {
   background-color: #ffffff;
 }
 
+.tasksSection__navigation {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: 1;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  border-bottom: 1px solid #dddada;
+}
+
+.tasksSection__toggleDone {
+  font-size: 15px;
+  color: #0099ba;
+}
+
+.tasksSection__toggleDone:hover {
+  cursor: pointer;
+}
+
+.tasksSection__finishAll {
+  font-size: 15px;
+  color: #0099ba;
+}
+
+.tasksSection__finishAll:hover {
+  cursor: pointer;
+  outline: 1px solid grey;
+}
+
 .tasksSection__header {
   margin-bottom: 0px;
+  margin-top: 0px;
   height: 80px;
   line-height: 80px;
-  font-size: 26px;
-  padding-left: 20px;
-  border-bottom: 3px solid #dddada;
+  font-size: 20px;
+  /* padding: 0 20px; */
 }
 
 .form {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .form__newTaskInput {
   padding: 10px;
-  width: 80%;
+  flex-grow: 1;
+  min-width: 75.55px;
   margin-top: 30px;
   margin-bottom: 30px;
+  margin-left: 20px;
 }
 
 .form__addTaskButton {
-  width: 15%;
+  margin-right: 20px;
+  margin-left: 20px;
   background-color: #007380;
   color: white;
-  padding: 10px;
+  padding: 10px 10px;
   border: none;
+}
+
+.form__addTaskButton:hover {
+  cursor: pointer;
 }
 
 .tasksSection__tasksList {
@@ -81,9 +118,8 @@ html {
 }
 
 .tasksListItem {
-  border-bottom: 3px solid #dddada;
+  border-bottom: 1px solid #dddada;
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   padding-left: 10px;
@@ -93,11 +129,12 @@ html {
 
 .tasksListItem__contentSpan {
   padding: 30px;
-  width: 70%;
-  overflow-wrap: break-word;
+  font-size: 16px;
+  word-break: break-word;
+  flex-grow: 1;
 }
 
-.tasksListItem__contentSpan--linethrough {
+.tasksListItem__contentSpan--done {
   text-decoration: line-through;
 }
 
@@ -106,8 +143,11 @@ html {
   height: 40px;
   background-color: #197a23;
   color: white;
-  border-radius: 5px;
   border: none;
+}
+
+.tasksListItem__checkButton:hover {
+  cursor: pointer;
 }
 
 .tasksListItem__removeButton {
@@ -115,8 +155,11 @@ html {
   height: 40px;
   background-color: #ed293c;
   color: white;
-  margin-left: auto;
   border: none;
+}
+
+.tasksListItem__removeButton:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
@@ -128,6 +171,7 @@ html {
 @media (max-width: 767px) {
   .form__newTaskInput {
     flex-basis: 95%;
+    margin-right: 20px;
   }
 }
 
@@ -137,23 +181,41 @@ html {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 500px) {
+  .tasksSection__navigation {
+    grid-template-columns: 1fr;
+    padding-right: 0px;
+    padding-left: 0px;
+    gap: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .tasksSection__header {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 500px) {
   .tasksListItem {
     justify-content: space-evenly;
     text-align: center;
   }
 }
 
-@media (max-width: 440px) {
+/* @media (max-width: 450px) {
   .tasksListItem__contentSpan {
     order: 1;
     flex-basis: 200px;
     padding: 30px 10px;
     text-align: center;
   }
-}
+} */
 
-@media (max-width: 440px) {
+@media (max-width: 500px) {
   .tasksListItem__removeButton {
     margin-left: unset;
   }
@@ -172,4 +234,8 @@ html {
   .tasksListAppHeader {
     text-align: center;
   }
+}
+
+.hidden {
+  display: none;
 }
