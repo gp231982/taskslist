@@ -55,21 +55,27 @@ html {
 
 .tasksSection__toggleDone {
   font-size: 15px;
-  color: #0099ba;
+  color: rgb(0, 153, 186);
 }
 
 .tasksSection__toggleDone:hover {
   cursor: pointer;
+  color: rgb(0, 153, 186, 0.8);
 }
 
 .tasksSection__finishAll {
   font-size: 15px;
-  color: #0099ba;
+  color: rgb(0, 153, 186);
 }
 
 .tasksSection__finishAll:hover {
   cursor: pointer;
-  outline: 1px solid grey;
+  color: rgb(0, 153, 186, 0.8);
+}
+
+.tasksSection__finishAll.notActive:hover {
+  cursor: auto;
+  color: #d4dbe3;
 }
 
 .tasksSection__header {
@@ -78,7 +84,6 @@ html {
   height: 80px;
   line-height: 80px;
   font-size: 20px;
-  /* padding: 0 20px; */
 }
 
 .form {
@@ -104,10 +109,12 @@ html {
   color: white;
   padding: 10px 10px;
   border: none;
+  transition: 0.2s;
 }
 
 .form__addTaskButton:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .tasksSection__tasksList {
@@ -141,30 +148,44 @@ html {
 .tasksListItem__checkButton {
   min-width: 40px;
   height: 40px;
-  background-color: #197a23;
+  background-color: rgb(25, 122, 35);
+  transition: 0.3s;
   color: white;
   border: none;
 }
 
 .tasksListItem__checkButton:hover {
   cursor: pointer;
+  background-color: rgb(25, 122, 35, 0.85);
 }
 
 .tasksListItem__removeButton {
   min-width: 40px;
   height: 40px;
-  background-color: #ed293c;
+  background-color: rgb(237, 41, 60);
+  transition: 0.3s;
   color: white;
   border: none;
 }
 
 .tasksListItem__removeButton:hover {
   cursor: pointer;
+  background-color: rgb(237, 41, 60, 0.85);
+}
+
+.notActive {
+  color: #d4dbe3;
 }
 
 @media (max-width: 767px) {
   .form__addTaskButton {
     flex-basis: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form__addTaskButton:hover {
+    transform: scale(1.05);
   }
 }
 
@@ -205,15 +226,6 @@ html {
     text-align: center;
   }
 }
-
-/* @media (max-width: 450px) {
-  .tasksListItem__contentSpan {
-    order: 1;
-    flex-basis: 200px;
-    padding: 30px 10px;
-    text-align: center;
-  }
-} */
 
 @media (max-width: 500px) {
   .tasksListItem__removeButton {
