@@ -1,22 +1,26 @@
 # tasksList-application
 
 ## Description
-This is a simple taskList application with possibility of adding, removing and marking tasks complete or to-do.
+This is a simple taskList application with possibility of adding, removing, marking tasks complete or to-do and showing or hiding complete tasks.
 
 ## Link
 https://gp231982.github.io/taskslist/
 
 ## Demo
-https://user-images.githubusercontent.com/68773588/217646147-107cbe25-de3e-4b4f-8e2e-e8a3a963b661.mp4
+https://user-images.githubusercontent.com/68773588/221028271-4450538c-555e-4ce5-ae4a-5e2fabecfaf4.mp4
 
-## Technologies
+
+
+## Technologies and conventions
 - HTML
 - CSS
   - Flexbox Layout
   - Media Queries
+  - Transitions and Transforms
 - JavaScript
-- BEM convention
 - ES6+ features: 
   - let and const keywords
   - Arrow Functions
   - Template Literals
+ - BEM and Immutability convention
+  
